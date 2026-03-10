@@ -1,34 +1,17 @@
+
+
 public class Medi_Score {
-    private int airOrOxygen; // 0 = not on oxygen, 1 = they are on oxygen
-    private int consciousnessLevel; // 0 = alert, 1 = confused, 2 = concerning, 3 = CVPU
-    private int respirationRate;
-    private int SpO2;
-    private double temp;
+    public static void takeScore(){ // the main function where the patients score will be recorded7
+        int score; // where the final score will be stored
+        Observations patientObs = new Observations(0, 0, 12, 88, 36.1);
 
+        if(patientObs.getairOrOxygen() == 0){
+            System.out.println("The patient is not on oxygen!");
+        } else if(patientObs.getairOrOxygen() == 1){
+            System.out.println("The patient is on oxygen!");
+        } else{
+            System.out.println("Invalid input, error occurred.");
+        }
 
-    public Medi_Score(int airOrOxygen, int consciousnessLevel, int respirationRate, int spO2, double temp){ //parameters
-        this.airOrOxygen = airOrOxygen;
-        this.consciousnessLevel = consciousnessLevel;
-        this.respirationRate = respirationRate;
-        this.SpO2 = spO2;
-        this.temp = temp;
-    }
-
-    // getters - gets the information
-    public int getairOrOxygen(){
-        return airOrOxygen;
-    } public int getConsciousnessLevel(){
-        return consciousnessLevel;
-    } public int getRespirationRate(){
-        return respirationRate;
-    } public int getSpO2(){
-        return SpO2;
-    } public double getTemp(){return temp;
-    }
-
-    public String toString(){
-        return "Air or oxygen: " + airOrOxygen + ", Conciousness level: " +
-                consciousnessLevel + ", Respiration rate: "  + respirationRate +
-                ", SpO2 level: " + SpO2 + ", Temperature: " + temp;
     }
 }
