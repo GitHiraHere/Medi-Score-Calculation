@@ -1,5 +1,5 @@
 public class Medi_Score {
-    public static int takeScore(){ // the main function where the patients score will be recorded7
+    public static int takeScore(){ // the main function where the patients score will be recorded
         int score = 0; // where the final score will be stored
         Observations patientObs = new Observations(0, 0, 12, 88, 36.1);
 
@@ -40,6 +40,20 @@ public class Medi_Score {
             score += 3;
         }
 
+        //SpO2 will need to measure if someone is on oxygen or not as well as their spo2 level to determine score
+
+        if(patientObs.getTemp() <= 35.0){
+            System.out.println("Added 3 points to the score.");
+            score += 3;
+        } else if(patientObs.getTemp() <= 36.0 || patientObs.getTemp() <= 37.0 || patientObs.getTemp() <= 38.0){
+            // Score 0, nothing added
+        } else if(patientObs.getTemp() <= 39.0) {
+            System.out.println("Added 1 point to the score.");
+            score += 1;
+        } else if(patientObs.getTemp() >= 39.1){
+            System.out.println("Added 2 points to the score.");
+            score += 2;
+        }
         return score;
     }
 }
