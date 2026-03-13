@@ -57,10 +57,10 @@ public class Medi_Score {
             System.out.println("SpO2: 0 points have been added.");
         }else if (patientObs.getairOrOxygen() == 0 && patientObs.getSpO2() >= 93) {
             System.out.println("SpO2: 0 points have been added.");
-        }else if (patientObs.getairOrOxygen() == 2 && patientObs.getSpO2() >= 93 && patientObs.getTemp() <= 94) {
-            System.out.println("SpO2: 1 point has been added. testing");
+        }else if (patientObs.getairOrOxygen() == 2 && patientObs.getSpO2() >= 93 && patientObs.getSpO2() <= 94) {
+            System.out.println("SpO2: 1 point has been added.");
             score += 1;
-        }else if (patientObs.getairOrOxygen() == 2 && patientObs.getSpO2() >= 95 && patientObs.getTemp() <= 96) {
+        }else if (patientObs.getairOrOxygen() == 2 && patientObs.getSpO2() >= 95 && patientObs.getSpO2() <= 96) {
             System.out.println("SpO2: 2 points have been added.");
             score += 2;
         }else if(patientObs.getairOrOxygen() == 2 && patientObs.getSpO2() >= 97){
