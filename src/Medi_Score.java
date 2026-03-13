@@ -1,12 +1,18 @@
 public class Medi_Score {
-    static void main(String[] args) {
-        int score = Medi_Score.takeScore(); // Have to lead with medi_score has takeScore is defined in the class not under main
+    public static void main(String[] args) {
 
-        System.out.println("Final score: " + score);
+        Observations patientObs = new Observations(0, 0, 15, 95, 37.1);
+        Observations patient2 = new Observations(2, 0, 17, 95, 37.1);
+        Observations patient3 = new Observations(2, 1, 23, 88, 38.5);
+
+        int score = Medi_Score.takeScore(patientObs); // Have to lead with medi_score has takeScore is defined in the class not under main
+        int score2 = Medi_Score.takeScore(patient2);
+        int score3 = Medi_Score.takeScore(patient3);
+
+        System.out.println("Final score:\n" + "Patient 1: " + score + " Patient 2: " + score2 + " Patient 3: " + score3);
     }
-    public static int takeScore(){ // the main function where the patients score will be recorded
+    public static int takeScore(Observations patientObs){ // the main function where the patients score will be recorded
         int score = 0; // where the final score will be stored
-        Observations patientObs = new Observations(2, 0, 17, 95, 37.1);
 
         if(patientObs.getairOrOxygen() == 0){
             System.out.println("The patient is not on oxygen!");
@@ -30,7 +36,7 @@ public class Medi_Score {
             System.out.println("Respiratory rate concerningly low, 3 points added.");
             score += 3;
         } else if(patientObs.getRespirationRate() >= 9 && patientObs.getRespirationRate() <= 11){
-            System.out.println("Respiratory rate is low, no points added.");
+            System.out.println("Respiratory rate is low, one point added.");
             score += 1;
         } else if(patientObs.getRespirationRate() >= 12 && patientObs.getRespirationRate() <= 20){
             System.out.println("Respiratory rate is good, 0 points have been added");
@@ -83,6 +89,12 @@ public class Medi_Score {
             System.out.println("Temp is concerning, added 2 points to the score.");
             score += 2;
         }
+
+        if(score > 14){
+            System.out.println("Medi Score exceeds 14, score changed to 14.");
+            score = 14;
+        }
+
         return score;
     }
 }
